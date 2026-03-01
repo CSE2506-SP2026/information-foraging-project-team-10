@@ -1,43 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="files/css/about.css">
-  <title>About | Nursery School | Washington University in St. Louis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!-- 你原本全站样式 -->
+  <link rel="stylesheet" type="text/css" href="files/css/about.css" />
+  <!-- 新增：流程页样式 -->
+  <link rel="stylesheet" type="text/css" href="files/css/flow.css" />
+
+  <title>Admissions Process | Nursery School | Washington University in St. Louis</title>
 </head>
 
 <body>
   <ts-load data-name="header"></ts-load>
 
   <img src="https://nurseryschool.wustl.edu/files/2015/03/group-holi.jpg" alt="" style="width:100%;">
+
   <div id="page-content">
-    <main>
-      <h1>Application Procedure</h1>
-      <h2>
-        Parents interested in Washington University Nursery School should
-        contact the school to schedule a visit.
-      </h2>
-      <p>
-        An application fee of $40 is required when applying to the nursery
-        school. After this is received, your child is placed on an enrollment
-        list. You will be notified of acceptance in the March preceding the
-        fall enrollment date. Upon acceptance, a nonrefundable deposit of one
-        month’s tuition is due. This will be applied to tuition for the
-        following May.
-      </p>
-      <p>
-        You may fill out an Application for Admission online. You may also
-        print out and return the pdf version:
-        <a class="download" href="downloads/application.pdf" target="_blank">Application for Admission WUNS</a>
-      </p>
+    <main class="flow">
+
+      <!-- ===== Hidden anchors: :target 用 ===== -->
+      <span id="s1" class="flow-anchor"></span>
+      <span id="s2" class="flow-anchor"></span>
+      <span id="s3" class="flow-anchor"></span>
+      <span id="s4" class="flow-anchor"></span>
+      <span id="s5" class="flow-anchor"></span>
+
+      <div class="flow-header">
+        <h1>Admissions Process</h1>
+
+        <!-- Progress (CSS-only: 用不同 step 显示不同宽度) -->
+        <div class="flow-progress" aria-label="progress">
+          <div class="step-label step-label-1">Step 1 of 5</div>
+          <div class="step-label step-label-2">Step 2 of 5</div>
+          <div class="step-label step-label-3">Step 3 of 5</div>
+          <div class="step-label step-label-4">Step 4 of 5</div>
+          <div class="step-label step-label-5">Step 5 of 5</div>
+
+          <div class="bar" aria-hidden="true">
+            <div class="bar-fill fill-1"></div>
+            <div class="bar-fill fill-2"></div>
+            <div class="bar-fill fill-3"></div>
+            <div class="bar-fill fill-4"></div>
+            <div class="bar-fill fill-5"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <nav class="flow-steps" aria-label="Admissions steps">
+        <a class="step-btn b1" href="#s1">How to Apply</a>
+        <a class="step-btn b2" href="#s2">Application Form</a>
+        <a class="step-btn b3" href="#s3">Enrollment</a>
+        <a class="step-btn b4" href="#s4">Tuition &amp; Fees</a>
+        <a class="step-btn b5" href="#s5">Required Forms &amp; Health Docs</a>
+      </nav>
+
+      <!-- Body -->
+      <section class="flow-body">
+
+        <!-- STEP 1 -->
+        <section class="step step-1">
+          <h2>How to Apply</h2>
+          <p>
+            Parents interested in Washington University Nursery School should contact the school to schedule a visit.
+          </p>
+          <p>
+            An application fee of $40 is required when applying to the nursery school. After this is received, your child
+            is placed on an enrollment list. You will be notified of acceptance in the March preceding the fall enrollment date.
+          </p>
+          <p>
+            Upon acceptance, a nonrefundable deposit of one month’s tuition is due. This will be applied to tuition for the following May.
+          </p>
+
+          <div class="flow-actions">
+            <a class="btn secondary" href="files/index.html">Back</a>
+            <a class="btn primary" href="#s2">Next</a>
+          </div>
+        </section>
+
+        <!-- STEP 2 -->
+        <section class="step step-2">
+          <h2>Application Form</h2>
+          <p>
+            You may fill out an Application for Admission online. You may also print out and return the PDF version:
+          </p>
+          <p>
+            <a class="download" href="downloads/application.pdf" target="_blank" rel="noopener">
+              Application for Admission WUNS (PDF)
+            </a>
+          </p>
+
+          <div class="flow-actions">
+            <a class="btn secondary" href="#s1">Back</a>
+            <a class="btn primary" href="#s3">Next</a>
+          </div>
+        </section>
+
+        <!-- STEP 3 -->
+        <section class="step step-3">
+          <h2>Enrollment</h2>
+          <p>
+            (Paste your enrollment details here.)
+          </p>
+
+          <div class="flow-actions">
+            <a class="btn secondary" href="#s2">Back</a>
+            <a class="btn primary" href="#s4">Next</a>
+          </div>
+        </section>
+
+        <!-- STEP 4 (✅ 这里塞你 tuition.html 的 main 内容) -->
+        <section class="step step-4">
+          <h2>Tuition &amp; Fees</h2>
+
+          <div class="flow-embed">
+            <h2>Tuition is paid by the year.</h2>
+            <p>You are welcome to pay your tuition online or by mail:</p>
+            <p>
+              Washington University Nursery School
+              <br>
+              Campus Box 1037 <br>
+              One Brookings <br>
+              Dr. St. Louis, MO 63130-4899
+            </p>
+
+            <table class="flow-table">
+              <tbody>
+                <tr>
+                  <th>&nbsp;</th>
+                  <th>Tuition Rates</th>
+                </tr>
+                <tr>
+                  <th>Half-Day Session</th>
+                  <td>$4,500 per year, $500 per month</td>
+                </tr>
+                <tr>
+                  <th>Full-Day Session</th>
+                  <td>$9,945 per year; $1105 per month</td>
+                </tr>
+                <tr>
+                  <th>Bear Tracks* Fall/Spring Semester</th>
+                  <td>
+                    Mondays – $450/$450<br>
+                    Tuesdays – $450/$450<br>
+                    Wednesdays – $420/$600<br>
+                    Thursdays – $360/$480<br>
+                    Fridays – $390/$420
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>
+              *<a href="files/bear_tracks.html">Bear Tracks</a> is the extended-day program, and sessions are once a week throughout the
+              fall and spring semesters. Bear Tracks is offered in the mornings, Tuesday through Friday, 9:45 a.m. – 12:30 p.m.
+              and in the afternoons, Monday through Friday, 11:45 a.m. – 2:30 p.m.
+            </p>
+
+            <hr>
+
+            <h3>From WUNS’ Parent Surveys:</h3>
+
+            <!-- 这里原本有 slideshow，需要 JS 才能动。
+                 纯 HTML/CSS 我先把三段 quote 直接变成静态卡片（更稳） -->
+            <div class="quote-grid">
+              <div class="quote-card">
+                We’ve seen definite growth in our child’s social-emotional skills, and we appreciate that the teachers encourage
+                independence and resolution of conflict between the children to allow them to get comfortable using these skills.
+              </div>
+              <div class="quote-card">
+                The program has brought a structure and discipline and prepared my (child) well for kindergarten this year. I was
+                amazed how the teachers cleverly integrated a variety of science/math/art/craft concepts into the curriculum so well.
+              </div>
+              <div class="quote-card">
+                (WUNS) is a safe and wonderful place that fosters growth in a play-based (as it should be!) program.
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-actions">
+            <a class="btn secondary" href="#s3">Back</a>
+            <a class="btn primary" href="#s5">Next</a>
+          </div>
+        </section>
+
+        <!-- STEP 5 (✅ 这里塞你 forms.html 的 main 内容) -->
+        <section class="step step-5">
+          <h2>Required Forms &amp; Health Docs</h2>
+
+          <div class="flow-embed">
+            <h3>ENROLLMENT AND DEVELOPMENTAL HISTORY FORMS</h3>
+            <h4>Please fill out the online versions of the appropriate forms.</h4>
+            <ul>
+              <li>The Enrollment Form needs to be filled out every year that your child attends WUNS.</li>
+              <li>If you are new to the school, fill out the Application Form (this form only needs to be filled out once).</li>
+              <li>Once accepted into the school, fill out the Developmental History Form (only needs to be done once).</li>
+              <li>The two medical forms (below) are only available as PDFs and must also be filled out and returned.</li>
+            </ul>
+
+            <h3>Enrollment Form</h3>
+            <p>
+              You must fill this form out every year that your child attends WUNS.
+              <br><br>
+              <a href="files/enroll.html">Fill out form</a>
+            </p>
+
+            <h3>Developmental History Form</h3>
+            <p>
+              You must fill this form out after admission into WUNS. This form only needs to be filled out once.
+              <br><br>
+              <a href="files/developmental">Fill out form</a>
+            </p>
+
+            <h3>Application for Admission Form</h3>
+            <p>
+              You must fill this form out to apply for admission. This form only needs to be filled out once.
+              <br><br>
+              <a href="files/application.html">Fill out form</a>
+            </p>
+
+            <h3>The following forms are only available as PDFs and also must be filled out:</h3>
+            <p>
+              <a class="download" href="downloads/examination_report.pdf" target="_blank" rel="noopener">
+                Child Medical Examination Report
+              </a>
+              <br><br>
+              <a class="download" href="downloads/immunization_history.pdf" target="_blank" rel="noopener">
+                Immunization Consent/History
+              </a>
+            </p>
+          </div>
+
+          <div class="flow-actions">
+            <a class="btn secondary" href="#s4">Back</a>
+            <a class="btn primary" href="files/index.html">Finish</a>
+          </div>
+        </section>
+
+      </section>
     </main>
   </div>
+
   <ts-load data-name="footer"></ts-load>
   <script src="scripts/js/app.js"></script>
 </body>
-
 </html>
