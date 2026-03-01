@@ -1,261 +1,61 @@
-/* --- layout container --- */
-.flow {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 18px 40px;
+/* files/css/flow-nav.css */
+
+/* 容器：左 Back / 右 Next */
+.flow-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  margin: 28px 0 8px;
+  padding-top: 18px;
+  border-top: 1px solid #eee;
+}
+
+/* 按钮基础样式（a 当按钮用） */
+.flow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 140px;
+  height: 44px;
+  padding: 0 18px;
+
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  color: #111;
+}
+
+/* Next 更“实心”一点 */
+.flow-btn.next {
+  border-color: #111;
+  background: #111;
+  color: #fff;
+}
+
+/* hover */
+.flow-btn:hover {
+  filter: brightness(0.98);
+}
+
+/* 禁用态（如果你某页不想有 Back/Next，就用这个 class） */
+.flow-btn.disabled {
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* 小屏适配 */
+@media (max-width: 520px) {
+  .flow-nav {
+    flex-direction: column;
+    align-items: stretch;
   }
-  
-  .flow-header h1 {
-    font-size: 56px;
-    line-height: 1.05;
-    margin: 6px 0 12px;
-    font-weight: 700;
-  }
-  
-  /* anchor for :target (avoid jump hiding under header) */
-  .flow-anchor {
-    display: block;
-    position: relative;
-    top: -20px;
-    height: 1px;
-  }
-  
-  /* --- progress --- */
-  .flow-progress {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 14px;
-  }
-  
-  .flow-progress .step-label {
-    display: none;
-    min-width: 90px;
-    color: #555;
-    font-size: 16px;
-  }
-  
-  .flow-progress .bar {
-    flex: 1;
-    height: 10px;
-    background: #e8e8e8;
-    border-radius: 999px;
-    overflow: hidden;
-  }
-  
-  .flow-progress .bar-fill {
-    display: none;
-    height: 100%;
-    background: #cfcfcf;
-    width: 20%;
-    border-radius: 999px;
-  }
-  
-  /* --- tabs --- */
-  .flow-steps {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 10px 0 18px;
-  }
-  
-  .step-btn {
-    display: inline-block;
-    padding: 10px 16px;
-    border: 1px solid #d7d7d7;
-    border-radius: 12px;
-    background: #fff;
-    color: #111;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  .step-btn:hover {
-    border-color: #aaa;
-  }
-  
-  .step-btn.active,
-  .step-btn:focus {
-    outline: none;
-  }
-  
-  /* --- card --- */
-  .flow-body {
-    margin-top: 10px;
-  }
-  
-  .step {
-    display: none;
-    background: #fff;
-    border: 1px solid #ededed;
-    border-radius: 14px;
-    padding: 28px 26px 18px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03);
-  }
-  
-  .step h2 {
-    font-size: 44px;
-    margin: 0 0 12px;
-    color: #6c6c6c;
-    font-weight: 700;
-  }
-  
-  .step p {
-    font-size: 18px;
-    line-height: 1.55;
-    color: #333;
-  }
-  
-  /* actions */
-  .flow-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    border-top: 1px solid #eee;
-    padding-top: 18px;
-    margin-top: 18px;
-  }
-  
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 160px;
-    height: 46px;
-    padding: 0 18px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    border: 1px solid #d0d0d0;
-  }
-  
-  .btn.secondary {
-    background: #fff;
-    color: #111;
-  }
-  
-  .btn.primary {
-    background: #111;
-    color: #fff;
-    border-color: #111;
-  }
-  
-  .btn.primary:hover { opacity: 0.92; }
-  .btn.secondary:hover { background: #fafafa; }
-  
-  /* embedded old page content */
-  .flow-embed h3 {
-    margin-top: 18px;
-    margin-bottom: 6px;
-    font-size: 20px;
-  }
-  
-  .flow-embed h4 {
-    margin-top: 6px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #444;
-  }
-  
-  .flow-embed ul {
-    padding-left: 22px;
-    margin: 8px 0 14px;
-  }
-  
-  .flow-embed a {
-    color: #1b66ff;
-    text-decoration: underline;
-  }
-  
-  /* nicer table inside card */
-  .flow-table {
+  .flow-btn {
     width: 100%;
-    border-collapse: collapse;
-    margin: 10px 0 14px;
-    font-size: 16px;
   }
-  
-  .flow-table th,
-  .flow-table td {
-    border: 1px solid #e3e3e3;
-    padding: 10px 12px;
-    vertical-align: top;
-  }
-  
-  .flow-table th {
-    background: #f7f7f7;
-    width: 35%;
-  }
-  
-  /* quote cards */
-  .quote-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 12px;
-  }
-  
-  .quote-card {
-    border: 1px solid #eaeaea;
-    border-radius: 12px;
-    padding: 14px 16px;
-    background: #fafafa;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333;
-  }
-  
-  /* ===== CSS-only routing using :target ===== */
-  /* default = step 1 */
-  .step-1 { display: block; }
-  .step-label-1 { display: block; }
-  .fill-1 { display: block; width: 20%; }
-  .b1 { border: 2px solid #1b66ff; box-shadow: 0 0 0 4px rgba(27,102,255,0.15); }
-  
-  /* when target changes, show corresponding step */
-  #s2:target ~ .flow-header .flow-progress .step-label-2,
-  #s3:target ~ .flow-header .flow-progress .step-label-3,
-  #s4:target ~ .flow-header .flow-progress .step-label-4,
-  #s5:target ~ .flow-header .flow-progress .step-label-5 {
-    display: block;
-  }
-  #s2:target ~ .flow-header .flow-progress .step-label-1,
-  #s3:target ~ .flow-header .flow-progress .step-label-1,
-  #s4:target ~ .flow-header .flow-progress .step-label-1,
-  #s5:target ~ .flow-header .flow-progress .step-label-1 { display:none; }
-  
-  #s2:target ~ .flow-header .flow-progress .fill-2 { display:block; width:40%; }
-  #s3:target ~ .flow-header .flow-progress .fill-3 { display:block; width:60%; }
-  #s4:target ~ .flow-header .flow-progress .fill-4 { display:block; width:80%; }
-  #s5:target ~ .flow-header .flow-progress .fill-5 { display:block; width:100%; }
-  #s2:target ~ .flow-header .flow-progress .fill-1,
-  #s3:target ~ .flow-header .flow-progress .fill-1,
-  #s4:target ~ .flow-header .flow-progress .fill-1,
-  #s5:target ~ .flow-header .flow-progress .fill-1 { display:none; }
-  
-  #s2:target ~ .flow-body .step-1,
-  #s3:target ~ .flow-body .step-1,
-  #s4:target ~ .flow-body .step-1,
-  #s5:target ~ .flow-body .step-1 { display:none; }
-  
-  #s2:target ~ .flow-body .step-2 { display:block; }
-  #s3:target ~ .flow-body .step-3 { display:block; }
-  #s4:target ~ .flow-body .step-4 { display:block; }
-  #s5:target ~ .flow-body .step-5 { display:block; }
-  
-  /* active tab */
-  #s2:target ~ .flow-steps .b2,
-  #s3:target ~ .flow-steps .b3,
-  #s4:target ~ .flow-steps .b4,
-  #s5:target ~ .flow-steps .b5 {
-    border: 2px solid #1b66ff;
-    box-shadow: 0 0 0 4px rgba(27,102,255,0.15);
-  }
-  
-  /* mobile tweaks */
-  @media (max-width: 720px) {
-    .flow-header h1 { font-size: 40px; }
-    .step h2 { font-size: 34px; }
-    .btn { min-width: 120px; }
-  }
+}
